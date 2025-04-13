@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cart Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+   
+
+<!-- New navbar code starts here -->
+
+<section id="header">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{url_for('admin_home')}}">X Kart</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{url_for('admin_home')}}">Add Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('show_product')}}">Show Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('customers_list')}}">Customers Data</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url_for('admin_order')}}" aria-disabled="true">Ordered Product</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+               
+                <li class="nav-but">
+                    <a class="btn btn-outline-light" href="/logout">Logout</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+{% for category, message in get_flashed_messages(with_categories=true) %}
+<div class="alert alert-{{category}}">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{ message }}
+</div>
+{% endfor %}
+
+<table class="m-3 p-3 table table-striped">
+<thead>
+  <tr>
+    <th scope="col">Order ID</th>
+    <th scope="col">Amount</th>
+    <th scope="col">Status</th>
+    <th scope="col">No of Items</th>
+    <th scope="col">Order Date</th>
+    <th scope="col">Expected Date</th>
+    <th scope="col">Action</th>
+    
+  </tr>
+</thead>
+{% if orders|length!=0 %}
+{% for x in orders %}
+<tbody>
+<tr>
+    <th scope="row">{{x[0]}}</th>
+    <td>{{x[1]}}</td>
+    <td>{{x[2]}}</td>
+    <td>{{x[4]}}</td>
+    <td>{{x[5]}}</td>
+    <td>{{x[6]}}</td>
+    <td><a class="nav-link active btn btn-primary p-2" href="{{url_for('view_order',order_id=x[0])}}">View</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+</table>
+<div class='mt-3 p-3'> 
+<h3>No Order Placed</h3>
+</div> 
+{% endif %}
+
+</section>
+
+</body>

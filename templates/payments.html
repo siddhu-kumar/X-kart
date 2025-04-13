@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="../static/payments.css">
+    <style>
+        #preloader {
+            background: white url(../static/images/Eclipse_loader2.gif) no-repeat center center ;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+
+        } 
+    </style>
+</head>
+<body>
+    <!--preloader div starts-->
+    <div id="preloader">
+
+    </div>
+    
+    <!--preloader div ends-->
+
+    <div class="container">
+        <h2>Choose Payment Method</h2>
+        <form id="paymentForm" method="POST" action="#">
+            <label for="paymentMethod">Select Payment Method:</label>
+            <select id="paymentMethod" onchange="togglePaymentOption()">
+                <option value="card" selected>Credit/Debit Card</option>
+                <option value="upi">UPI</option>
+            </select>
+            <div id="cardDetails" class="payment-option active">
+                <h3>Card Details</h3>
+                <label for="cardOwner">Card Owner's Name:</label>
+                <input type="text" id="cardOwner" name="cardOwner">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber">
+                <label for="expiry">Expiry Date:</label>
+                <input type="text" id="expiry" name="expiry">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv">
+            </div>
+            <div id="upiDetails" class="payment-option">
+                <h3>UPI Details</h3>
+                <label for="upiId">UPI ID:</label>
+                <input type="text" id="upiId" name="upiId">
+            </div>
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+    <script>
+        var loader = document.getElementById("preloader");
+    window.addEventListener("load",function(){
+        loader.style.display = "none";
+    })
+    
+    </script>
+
+    <script>
+        function togglePaymentOption() {
+            var paymentMethod = document.getElementById("paymentMethod").value;
+            var cardDetails = document.getElementById("cardDetails");
+            var upiDetails = document.getElementById("upiDetails");
+
+            if (paymentMethod === "card") {
+                cardDetails.classList.add("active");
+                upiDetails.classList.remove("active");
+            } else if (paymentMethod === "upi") {
+                cardDetails.classList.remove("active");
+                upiDetails.classList.add("active");
+            }
+        }
+    </script>
+   
+    
+</body>
+</html>
+
+
+<!-- 
+pre loader code to 
+-->

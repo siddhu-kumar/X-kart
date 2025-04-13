@@ -1,0 +1,224 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <style>
+        #preloader {
+            background: white url(../static/images/Eclipse_loader2.gif) no-repeat center center ;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+
+        } 
+    </style>
+
+</head>
+
+<body>
+    <!--preloader div starts-->
+    <div id="preloader">
+
+    </div>
+<!-- previous navbar code starts here-->
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary-subtle">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{url_for('home')}}">X Kart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url_for('cart')}}" class="nav-link active" aria-current="page" >MyCart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">MyOrder</a>
+                    </li>
+
+                </ul>
+                <span id="username" class="mx-3 p-3 rounded-pill text-danger-emphasis bg-secondary-subtle">{{username}}</span>
+                <a class="nav-link active btn btn-primary p-2" aria-current="page" href="/logout">Logout</a>
+            </div>
+        </div>
+    </nav> -->
+<!-- previous navbar code ends here -->
+
+<!-- New navbar code starts here -->
+<section id="header">
+
+    <!-- code for the navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{url_for('home')}}">X Kart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{url_for('cart')}}">My Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{url_for('order')}}">Orders</a>
+                    </li>
+                   
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" aria-disabled="true">My Profile</a>
+                    </li> -->
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-but">
+                        <!-- <span id="username" class="mx-3 rounded-0 text-danger-emphasis bg-secondary-subtle">{{username}}</span> -->
+                        <a id="username" href ="{{url_for('profile',ids=username[1])}}" class="btn btn-outline-light bg-secondary-subtle text-danger-emphasis">{{username[0]}}</a>
+                    </li>
+                    <li class="nav-but">
+                        <a class="btn btn-outline-light" href="/login">Logout</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+</section>
+<!-- end of new navbar section -->
+<!-- New navbar code ends here -->
+
+
+<!-- carousel effect images section starts-->
+<section id="home" class="home pt-5 overflow-hidden">
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="home-banner home-banner-1">
+                    <!-- <div class="home-banner-text">
+                        <h1>women</h1>
+                        <h2>20% discount for this season</h2>
+                        <a href="#" class="btn btn-danger text-uppercase mt-4">our products</a>
+                    </div> -->
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="home-banner home-banner-2">
+                    <!-- <div class="home-banner-text">
+                        <h1>E-Shop</h1>
+                        <h2>with working card and pay pal</h2>
+                        <a href="#" class="btn btn-danger text-uppercase mt-4">our products</a>
+                    </div> -->
+                </div>
+            </div>
+            <!-- <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+      </div> -->
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true">
+                <span class="ti-angle-left-slider-icon"></span>
+            </span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true">
+                <span class="ti-angle-right-slider-icon"></span>
+            </span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<!-- carousel effect images section ends-->
+
+
+    <div class="row">
+        <div id="menu" style="display:flex;flex-wrap: wrap ;">
+            {% for item in items %}
+            <div class="card m-3 p-3" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{item[1]}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{item[0]}}</h6>
+                  <p class="card-text">Some quick example text to build on the bulk of the card's content.</p>
+                  <p class="card-text">{{item[2]}}</p>
+                  <a href="{{url_for('add',id=item[0])}}" class="card-link"><button>Buy</button></a>
+                  <!-- <button >Buy</button> -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- footer code starts here -->
+
+    <div class="copyright">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <div class="copyright-info">
+                <span>Copyright &copy;
+                  <script>
+                    document.write(new Date().getFullYear())
+                  </script>, Designed &amp; Developed by X kart.
+                </span>
+              </div>
+            </div>
+
+            
+          </div><!-- Row end -->
+
+          <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
+            <button class="btn btn-primary" title="Back to Top">
+              <i class="fa fa-angle-double-up"></i>
+            </button>
+          </div>
+
+        </div><!-- Container end -->
+      </div><!-- Copyright end -->
+
+      <!-- footer code ends here -->
+
+
+    <!-- preloader script code starts here -->
+    <script>
+        var loader = document.getElementById("preloader");
+    window.addEventListener("load",function(){
+        loader.style.display = "none";
+    })
+    
+    </script>
+
+    <!-- preloader scripts ends here  -->
+
+    <!-- this is the script to be used to have bootstrap functionality -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    
+    <!-- end of script for bootstrap -->
+</body>
+
+</html>
